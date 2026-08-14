@@ -29,41 +29,41 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ink: var(--ink);
-  --color-ink-foreground: var(--ink-foreground);
-  --color-sand: var(--sand);
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Hind", ui-sans-serif, system-ui, sans-serif;
+  --color-steel: var(--steel);
+  --color-steel-foreground: var(--steel-foreground);
+  --color-concrete: var(--concrete);
+  --font-display: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.5rem;
-  /* Warm site-yellow + charcoal trade palette */
-  --background: oklch(0.985 0.008 85);
-  --foreground: oklch(0.21 0.015 60);
+  --radius: 0.375rem;
+  /* Deep slate / navy structure with safety-yellow accent */
+  --background: oklch(0.985 0.003 250);
+  --foreground: oklch(0.24 0.03 255);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.015 60);
+  --card-foreground: oklch(0.24 0.03 255);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.015 60);
-  --primary: oklch(0.72 0.17 65);
-  --primary-foreground: oklch(0.2 0.02 60);
-  --secondary: oklch(0.95 0.012 85);
-  --secondary-foreground: oklch(0.28 0.02 60);
-  --muted: oklch(0.95 0.012 85);
-  --muted-foreground: oklch(0.5 0.02 65);
-  --accent: oklch(0.93 0.03 90);
-  --accent-foreground: oklch(0.25 0.02 60);
+  --popover-foreground: oklch(0.24 0.03 255);
+  --primary: oklch(0.85 0.17 92);
+  --primary-foreground: oklch(0.22 0.03 255);
+  --secondary: oklch(0.945 0.008 250);
+  --secondary-foreground: oklch(0.3 0.03 255);
+  --muted: oklch(0.945 0.008 250);
+  --muted-foreground: oklch(0.52 0.02 255);
+  --accent: oklch(0.93 0.015 250);
+  --accent-foreground: oklch(0.26 0.03 255);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.012 85);
-  --input: oklch(0.9 0.012 85);
-  --ring: oklch(0.72 0.17 65);
-  --ink: oklch(0.22 0.014 60);
-  --ink-foreground: oklch(0.97 0.008 85);
-  --sand: oklch(0.955 0.018 85);
-  --gradient-ink: linear-gradient(160deg, oklch(0.26 0.018 60), oklch(0.17 0.012 60));
-  --shadow-lift: 0 18px 40px -22px oklch(0.22 0.014 60 / 0.45);
-  --shadow-card: 0 1px 2px oklch(0.22 0.014 60 / 0.06), 0 12px 28px -20px oklch(0.22 0.014 60 / 0.35);
+  --border: oklch(0.9 0.01 250);
+  --input: oklch(0.9 0.01 250);
+  --ring: oklch(0.85 0.17 92);
+  --steel: oklch(0.26 0.035 258);
+  --steel-foreground: oklch(0.97 0.005 250);
+  --concrete: oklch(0.955 0.006 250);
+  --gradient-steel: linear-gradient(155deg, oklch(0.31 0.04 258), oklch(0.19 0.028 258));
+  --shadow-lift: 0 20px 44px -24px oklch(0.24 0.03 255 / 0.5);
+  --shadow-card: 0 1px 2px oklch(0.24 0.03 255 / 0.06), 0 14px 30px -22px oklch(0.24 0.03 255 / 0.4);
 }
 
 @layer base {
@@ -84,13 +84,15 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
   }
 }
 
-@utility surface-ink {
-  background-image: var(--gradient-ink);
-  color: var(--color-ink-foreground);
+@utility surface-steel {
+  background-image: var(--gradient-steel);
+  color: var(--color-steel-foreground);
 }
 
 @utility shadow-lift {
@@ -103,8 +105,17 @@
 
 @utility eyebrow {
   font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+@utility hazard-rule {
+  height: 6px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-primary) 0 14px,
+    var(--color-steel) 14px 28px
+  );
 }
