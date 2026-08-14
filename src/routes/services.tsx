@@ -4,8 +4,9 @@ import bathroom from "@/assets/bathroom.jpg";
 import kitchen from "@/assets/kitchen.jpg";
 import roofing from "@/assets/roofing.jpg";
 import patio from "@/assets/patio.jpg";
-import floors from "@/assets/floors.jpg";
-import hero from "@/assets/hero-home.jpg";
+import floors from "@/assets/floor-stripout.jpg";
+import hero from "@/assets/brickwork.jpg";
+
 
 const title = "Renovation & Construction Services | Roodepoort";
 const description =
