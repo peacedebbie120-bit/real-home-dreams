@@ -175,8 +175,9 @@ function Home() {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  width={1200}
-                  height={912}
+                  width={1600}
+                  height={1200}
+
                   loading="lazy"
                   className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
