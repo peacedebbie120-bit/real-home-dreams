@@ -92,11 +92,12 @@ function Services() {
               <img
                 src={s.src}
                 alt={s.title}
-                width={1200}
-                height={912}
+                width={1600}
+                height={1200}
                 loading="lazy"
                 className="h-56 w-full object-cover"
               />
+
               <div className="p-6">
                 <h2 className="text-xl">{s.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{s.text}</p>
