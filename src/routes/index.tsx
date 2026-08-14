@@ -7,6 +7,12 @@ import kitchen from "@/assets/kitchen.jpg";
 import roofing from "@/assets/roofing.jpg";
 import patio from "@/assets/patio.jpg";
 import floors from "@/assets/floors.jpg";
+import poolHouse from "@/assets/pool-house.jpg";
+import vanity from "@/assets/vanity.jpg";
+import brickwork from "@/assets/brickwork.jpg";
+import trusses from "@/assets/trusses.jpg";
+import interior from "@/assets/interior.jpg";
+
 
 const title = "Home Renovations & Construction Roodepoort | Free Quotes";
 const description =
