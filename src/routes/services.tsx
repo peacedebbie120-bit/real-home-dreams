@@ -4,8 +4,9 @@ import bathroom from "@/assets/bathroom.jpg";
 import kitchen from "@/assets/kitchen.jpg";
 import roofing from "@/assets/roofing.jpg";
 import patio from "@/assets/patio.jpg";
-import floors from "@/assets/floors.jpg";
-import hero from "@/assets/hero-home.jpg";
+import floors from "@/assets/floor-stripout.jpg";
+import hero from "@/assets/brickwork.jpg";
+
 
 const title = "Renovation & Construction Services | Roodepoort";
 const description =
@@ -91,11 +92,12 @@ function Services() {
               <img
                 src={s.src}
                 alt={s.title}
-                width={1200}
-                height={912}
+                width={1600}
+                height={1200}
                 loading="lazy"
                 className="h-56 w-full object-cover"
               />
+
               <div className="p-6">
                 <h2 className="text-xl">{s.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{s.text}</p>

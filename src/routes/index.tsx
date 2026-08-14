@@ -7,6 +7,12 @@ import kitchen from "@/assets/kitchen.jpg";
 import roofing from "@/assets/roofing.jpg";
 import patio from "@/assets/patio.jpg";
 import floors from "@/assets/floors.jpg";
+import poolHouse from "@/assets/pool-house.jpg";
+import vanity from "@/assets/vanity.jpg";
+import brickwork from "@/assets/brickwork.jpg";
+import trusses from "@/assets/trusses.jpg";
+import interior from "@/assets/interior.jpg";
+
 
 const title = "Home Renovations & Construction Roodepoort | Free Quotes";
 const description =
@@ -27,11 +33,15 @@ export const Route = createFileRoute("/")({
 });
 
 const gallery = [
-  { src: bathroom, alt: "Newly renovated bathroom with walk-in glass shower", label: "Bathroom renovation" },
-  { src: roofing, alt: "Roofers replacing damaged roof tiles", label: "Roof repairs" },
-  { src: kitchen, alt: "Renovated open-plan kitchen with stone countertops", label: "Kitchen upgrade" },
-  { src: patio, alt: "New covered patio with built-in braai", label: "Patio & braai build" },
-  { src: floors, alt: "Newly screeded and tiled floor in a bright room", label: "Floor repairs" },
+  { src: bathroom, alt: "Completed walk-in shower with large-format marble-look tiles and frameless glass", label: "Bathroom renovation" },
+  { src: roofing, alt: "New timber roof structure being built over a patio area", label: "Roof & timber structures" },
+  { src: kitchen, alt: "Renovated kitchen with white cabinetry and pendant lighting", label: "Kitchen upgrade" },
+  { src: patio, alt: "Covered patio with built-in braai, pizza oven and tiled counter", label: "Patio & braai build" },
+  { src: floors, alt: "Team laying new paving and floor tiles on site", label: "Paving & floors" },
+  { src: poolHouse, alt: "Home with new aluminium stacking doors overlooking a paved pool area", label: "Doors & poolside paving" },
+  { src: brickwork, alt: "Bricklayers building a new face-brick boundary wall", label: "Walls & brickwork" },
+  { src: trusses, alt: "New white-painted roof trusses and ceiling inside a completed room", label: "Ceilings & trusses" },
+  { src: interior, alt: "Finished open-plan interior with exposed white beams and stacking doors", label: "Full interior renovation" },
 ];
 
 function Home() {
@@ -40,11 +50,12 @@ function Home() {
       <section className="relative overflow-hidden">
         <img
           src={hero}
-          alt="Fully renovated Roodepoort family home at golden hour"
-          width={1920}
-          height={1088}
+          alt="Covered patio and pool area completed by our Roodepoort renovation team"
+          width={1600}
+          height={1200}
           className="absolute inset-0 h-full w-full object-cover"
         />
+
         <div className="absolute inset-0 bg-[oklch(0.2_0.014_60/0.72)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-24 text-ink-foreground md:py-36">
           <p className="eyebrow text-primary">Florida Park · Roodepoort · West Rand</p>
@@ -126,29 +137,30 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={bathroom}
-              alt="Completed bathroom renovation in Roodepoort"
-              width={1200}
-              height={912}
+              src={interior}
+              alt="Finished open-plan living area with exposed white beams and stacking doors"
+              width={1600}
+              height={1200}
               loading="lazy"
               className="col-span-2 h-64 w-full rounded-xl object-cover shadow-card"
             />
             <img
-              src={patio}
-              alt="Covered patio extension with braai"
-              width={1200}
-              height={912}
+              src={vanity}
+              alt="New bathroom vanity with backlit mirror and metro tiling"
+              width={900}
+              height={1200}
               loading="lazy"
               className="h-40 w-full rounded-xl object-cover shadow-card"
             />
             <img
               src={kitchen}
               alt="Kitchen renovation with new cabinetry"
-              width={1200}
-              height={912}
+              width={1600}
+              height={1200}
               loading="lazy"
               className="h-40 w-full rounded-xl object-cover shadow-card"
             />
+
           </div>
         </div>
       </section>
@@ -163,8 +175,9 @@ function Home() {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  width={1200}
-                  height={912}
+                  width={1600}
+                  height={1200}
+
                   loading="lazy"
                   className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
