@@ -33,11 +33,15 @@ export const Route = createFileRoute("/")({
 });
 
 const gallery = [
-  { src: bathroom, alt: "Newly renovated bathroom with walk-in glass shower", label: "Bathroom renovation" },
-  { src: roofing, alt: "Roofers replacing damaged roof tiles", label: "Roof repairs" },
-  { src: kitchen, alt: "Renovated open-plan kitchen with stone countertops", label: "Kitchen upgrade" },
-  { src: patio, alt: "New covered patio with built-in braai", label: "Patio & braai build" },
-  { src: floors, alt: "Newly screeded and tiled floor in a bright room", label: "Floor repairs" },
+  { src: bathroom, alt: "Completed walk-in shower with large-format marble-look tiles and frameless glass", label: "Bathroom renovation" },
+  { src: roofing, alt: "New timber roof structure being built over a patio area", label: "Roof & timber structures" },
+  { src: kitchen, alt: "Renovated kitchen with white cabinetry and pendant lighting", label: "Kitchen upgrade" },
+  { src: patio, alt: "Covered patio with built-in braai, pizza oven and tiled counter", label: "Patio & braai build" },
+  { src: floors, alt: "Team laying new paving and floor tiles on site", label: "Paving & floors" },
+  { src: poolHouse, alt: "Home with new aluminium stacking doors overlooking a paved pool area", label: "Doors & poolside paving" },
+  { src: brickwork, alt: "Bricklayers building a new face-brick boundary wall", label: "Walls & brickwork" },
+  { src: trusses, alt: "New white-painted roof trusses and ceiling inside a completed room", label: "Ceilings & trusses" },
+  { src: interior, alt: "Finished open-plan interior with exposed white beams and stacking doors", label: "Full interior renovation" },
 ];
 
 function Home() {
@@ -46,11 +50,12 @@ function Home() {
       <section className="relative overflow-hidden">
         <img
           src={hero}
-          alt="Fully renovated Roodepoort family home at golden hour"
-          width={1920}
-          height={1088}
+          alt="Covered patio and pool area completed by our Roodepoort renovation team"
+          width={1600}
+          height={1200}
           className="absolute inset-0 h-full w-full object-cover"
         />
+
         <div className="absolute inset-0 bg-[oklch(0.2_0.014_60/0.72)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-24 text-ink-foreground md:py-36">
           <p className="eyebrow text-primary">Florida Park · Roodepoort · West Rand</p>
