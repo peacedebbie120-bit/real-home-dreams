@@ -1,22 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, ShieldCheck, Ruler, HardHat, Sparkles } from "lucide-react";
-import { SiteLayout, CtaBand, CallButton, QuoteButton, Rating, BUSINESS } from "@/components/site/Layout";
-import hero from "@/assets/hero-home.jpg";
-import bathroom from "@/assets/bathroom.jpg";
-import kitchen from "@/assets/kitchen.jpg";
-import roofing from "@/assets/roofing.jpg";
-import patio from "@/assets/patio.jpg";
-import floors from "@/assets/floors.jpg";
-import poolHouse from "@/assets/pool-house.jpg";
-import vanity from "@/assets/vanity.jpg";
-import brickwork from "@/assets/brickwork.jpg";
-import trusses from "@/assets/trusses.jpg";
-import interior from "@/assets/interior.jpg";
+import { CheckCircle2, ShieldCheck, Clock, MapPin, Star, ArrowRight } from "lucide-react";
+import {
+  SiteLayout,
+  CtaBand,
+  CallButton,
+  QuoteButton,
+  Rating,
+  BUSINESS,
+} from "@/components/site/Layout";
+import { gallery, services, reviews, processSteps } from "@/components/site/data";
 
-
-const title = "Home Renovations & Construction Roodepoort | Free Quotes";
+const title = "Mmatli Construction | Building Contractor in Johannesburg";
 const description =
-  "Trusted Roodepoort renovation and construction team. Bathrooms, kitchens, roof repairs, patios and home repairs. 4.6★ from 41 Google reviews. Call 064 697 8856.";
+  "Mmatli Construction is a Johannesburg building contractor: new builds, extensions, renovations, concrete and structural work. Rated 4.8 on Google. Free quotes — call 065 888 5185.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,210 +22,229 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://real-home-dreams.lovable.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://real-home-dreams.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "GeneralContractor",
+          name: BUSINESS.name,
+          telephone: "+27658885185",
+          url: "https://real-home-dreams.lovable.app/",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Office 506, 38 Melle St, Braamfontein",
+            addressLocality: "Johannesburg",
+            postalCode: "2000",
+            addressCountry: "ZA",
+          },
+          openingHours: "Mo-Fr 08:00-15:00",
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: BUSINESS.rating,
+            reviewCount: BUSINESS.reviewCount,
+          },
+        }),
+      },
     ],
   }),
   component: Home,
 });
 
-const gallery = [
-  { src: bathroom, alt: "Completed walk-in shower with large-format marble-look tiles and frameless glass", label: "Bathroom renovation" },
-  { src: roofing, alt: "New timber roof structure being built over a patio area", label: "Roof & timber structures" },
-  { src: kitchen, alt: "Renovated kitchen with white cabinetry and pendant lighting", label: "Kitchen upgrade" },
-  { src: patio, alt: "Covered patio with built-in braai, pizza oven and tiled counter", label: "Patio & braai build" },
-  { src: floors, alt: "Team laying new paving and floor tiles on site", label: "Paving & floors" },
-  { src: poolHouse, alt: "Home with new aluminium stacking doors overlooking a paved pool area", label: "Doors & poolside paving" },
-  { src: brickwork, alt: "Bricklayers building a new face-brick boundary wall", label: "Walls & brickwork" },
-  { src: trusses, alt: "New white-painted roof trusses and ceiling inside a completed room", label: "Ceilings & trusses" },
-  { src: interior, alt: "Finished open-plan interior with exposed white beams and stacking doors", label: "Full interior renovation" },
+const trust = [
+  { icon: Star, title: "4.8 / 5 on Google", body: "Rated by clients across Johannesburg." },
+  { icon: MapPin, title: "Joburg based", body: "Braamfontein office, teams across Gauteng." },
+  { icon: ShieldCheck, title: "Quoted properly", body: "Itemised pricing, no surprise extras." },
+  { icon: Clock, title: "Free site visit", body: "We come out and measure at no cost." },
 ];
 
 function Home() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden">
+      <section className="relative isolate overflow-hidden surface-steel">
         <img
-          src={hero}
-          alt="Covered patio and pool area completed by our Roodepoort renovation team"
-          width={1600}
-          height={1200}
-          className="absolute inset-0 h-full w-full object-cover"
+          src={gallery[0].src}
+          alt={gallery[0].alt}
+          width={1440}
+          height={810}
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
         />
-
-        <div className="absolute inset-0 bg-[oklch(0.2_0.014_60/0.72)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-24 text-ink-foreground md:py-36">
-          <p className="eyebrow text-primary">Florida Park · Roodepoort · West Rand</p>
-          <h1 className="mt-4 max-w-3xl text-4xl leading-[1.05] md:text-6xl">
-            Renovations done properly — the first time.
+        <div className="relative mx-auto max-w-6xl px-4 py-24 md:py-32">
+          <p className="eyebrow text-primary">Building contractor · Braamfontein, Johannesburg</p>
+          <h1 className="mt-4 max-w-3xl text-5xl md:text-7xl">
+            Built straight, priced honestly, finished on time
           </h1>
-          <p className="mt-6 max-w-xl text-base opacity-90 md:text-lg">
-            From leaking roofs and lifting floors to full bathroom and kitchen
-            makeovers. {BUSINESS.owner} and his teams show up on time, quote honestly
-            and finish what they start.
+          <p className="mt-6 max-w-xl text-base opacity-90">
+            Mmatli Construction handles new builds, extensions, renovations and structural
+            work across Johannesburg — from setting out the foundations to the final coat
+            of paint.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <QuoteButton label="Get my free quote" />
             <CallButton label={`Call ${BUSINESS.phone}`} />
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-md border border-white/30 px-5 py-3 font-display text-sm font-bold uppercase tracking-widest transition-colors hover:bg-white/10"
-            >
-              Get a free quote
-            </Link>
           </div>
-          <Rating className="mt-8" />
+          <Rating className="mt-8 opacity-90" />
         </div>
       </section>
 
       <section className="border-b border-border bg-card">
         <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: ShieldCheck, title: "Insurance-ready", text: "Reports and repairs assessors accept." },
-            { icon: Ruler, title: "Fixed written quotes", text: "Itemised, no hidden extras." },
-            { icon: HardHat, title: "Own trusted teams", text: "No fly-by-night subcontractors." },
-            { icon: Sparkles, title: "Clean handover", text: "Site cleared, snags closed out." },
-          ].map((item) => (
-            <div key={item.title} className="flex gap-3">
-              <item.icon className="h-6 w-6 shrink-0 text-primary" />
+          {trust.map((t) => (
+            <div key={t.title} className="flex gap-3">
+              <t.icon className="mt-1 h-5 w-5 shrink-0 text-primary" />
               <div>
-                <h3 className="text-base">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.text}</p>
+                <h2 className="text-lg">{t.title}</h2>
+                <p className="text-sm text-muted-foreground">{t.body}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="eyebrow text-muted-foreground">Why homeowners call us back</p>
-            <h2 className="mt-3 text-3xl md:text-4xl">
-              The team engineers call when nobody else can find the problem
-            </h2>
-            <p className="mt-5 text-muted-foreground">
-              We started with small home repairs in Florida Park and grew purely on
-              word of mouth. Today we handle everything from stubborn damp and
-              lifting floors to full construction and extensions — always with the
-              same approach: diagnose properly, price fairly, fix it once.
-            </p>
-            <ul className="mt-6 space-y-3">
+            <p className="eyebrow text-muted-foreground">What we do</p>
+            <h2 className="mt-3 text-3xl md:text-5xl">Services</h2>
+          </div>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-widest text-foreground hover:text-primary"
+          >
+            All services <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <article key={s.slug} className="overflow-hidden rounded-xl bg-card shadow-card">
+              <img
+                src={s.photo}
+                alt={s.alt}
+                width={1600}
+                height={1200}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-xl">{s.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{s.blurb}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-concrete">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-2 lg:items-center">
+          <img
+            src={gallery[2].src}
+            alt={gallery[2].alt}
+            width={1600}
+            height={1200}
+            loading="lazy"
+            className="aspect-[4/3] w-full rounded-xl object-cover shadow-card"
+          />
+          <div>
+            <p className="eyebrow text-muted-foreground">Why clients stay with us</p>
+            <h2 className="mt-3 text-3xl md:text-5xl">No shortcuts under the surface</h2>
+            <ul className="mt-6 space-y-4 text-sm">
               {[
-                "Free on-site assessment and written quote",
-                "Cost-effective solutions, not upsells",
-                "Work completed on time and on budget",
-                "Guaranteed workmanship on every job",
-              ].map((point) => (
-                <li key={point} className="flex gap-3 text-sm">
-                  <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" />
-                  {point}
+                "Foundations, reinforcement and concrete done to spec — not to the cheapest shortcut.",
+                "One team leader responsible for your site, reachable on the phone every day.",
+                "Materials quoted openly so you know exactly what you are paying for.",
+                "Sites left swept and safe at the end of every working day.",
+                "Snag list walked with you before we call the job finished.",
+              ].map((line) => (
+                <li key={line} className="flex gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                  <span>{line}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8">
               <QuoteButton />
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center rounded-md bg-ink px-5 py-3 font-display text-sm font-bold uppercase tracking-widest text-ink-foreground transition-transform hover:-translate-y-0.5"
-              >
-                View services
-              </Link>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src={interior}
-              alt="Finished open-plan living area with exposed white beams and stacking doors"
-              width={1600}
-              height={1200}
-              loading="lazy"
-              className="col-span-2 h-64 w-full rounded-xl object-cover shadow-card"
-            />
-            <img
-              src={vanity}
-              alt="New bathroom vanity with backlit mirror and metro tiling"
-              width={900}
-              height={1200}
-              loading="lazy"
-              className="h-40 w-full rounded-xl object-cover shadow-card"
-            />
-            <img
-              src={kitchen}
-              alt="Kitchen renovation with new cabinetry"
-              width={1600}
-              height={1200}
-              loading="lazy"
-              className="h-40 w-full rounded-xl object-cover shadow-card"
-            />
-
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-sand py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="eyebrow text-muted-foreground">Recent work</p>
-          <h2 className="mt-3 text-3xl md:text-4xl">Real projects, real finishes</h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.map((item) => (
-              <figure key={item.label} className="group overflow-hidden rounded-xl bg-card shadow-card">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  width={1600}
-                  height={1200}
-
-                  loading="lazy"
-                  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <figcaption className="px-4 py-3 font-display text-sm font-semibold uppercase tracking-wide">
-                  {item.label}
-                </figcaption>
-              </figure>
-            ))}
-            <div className="flex flex-col justify-center rounded-xl border border-dashed border-border p-6">
-              <h3 className="text-lg">Your project next?</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Send us a few photos and we'll tell you what it will really take.
-              </p>
-              <div className="mt-5">
-                <QuoteButton label="Start here" full />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="grid gap-8 md:grid-cols-3">
-          {[
-            {
-              quote:
-                "Insurance engineers had no idea what was causing my floor to lift. George was professional, arrived exactly when he said he would, and would not leave until it was sorted.",
-              name: "Anthony Bailey",
-            },
-            {
-              quote:
-                "5 stars — more if I could. Honest, reliable and very patient. The quality of workmanship and the friendliness stood out. I would highly recommend George.",
-              name: "Yvette Lourens",
-            },
-            {
-              quote:
-                "Extremely reliable, cost-effective solutions, completed efficiently and on time. The quality of his work speaks for itself.",
-              name: "Marisa Bornman",
-            },
-          ].map((r) => (
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <p className="eyebrow text-muted-foreground">How it works</p>
+        <h2 className="mt-3 text-3xl md:text-5xl">Four steps to a finished job</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {processSteps.map((p) => (
+            <div key={p.step} className="rounded-xl bg-card p-6 shadow-card">
+              <span className="font-display text-4xl font-bold text-primary">{p.step}</span>
+              <h3 className="mt-3 text-xl">{p.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow text-muted-foreground">Recent work</p>
+            <h2 className="mt-3 text-3xl md:text-5xl">On site in Johannesburg</h2>
+          </div>
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-widest hover:text-primary"
+          >
+            View projects <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery.slice(0, 6).map((g) => (
+            <figure key={g.title} className="overflow-hidden rounded-xl bg-card shadow-card">
+              <img
+                src={g.src}
+                alt={g.alt}
+                width={1600}
+                height={1200}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+              <figcaption className="p-4 text-sm">
+                <span className="font-display font-semibold uppercase tracking-wide">
+                  {g.title}
+                </span>
+                <span className="mt-1 block text-muted-foreground">{g.caption}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <p className="eyebrow text-muted-foreground">Reviews</p>
+        <h2 className="mt-3 text-3xl md:text-5xl">Rated {BUSINESS.rating} on Google</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {reviews.map((r) => (
             <blockquote key={r.name} className="rounded-xl bg-card p-6 shadow-card">
-              <Rating className="text-xs" />
-              <p className="mt-4 text-sm leading-relaxed">"{r.quote}"</p>
-              <footer className="mt-4 font-display text-sm font-bold uppercase tracking-wide">
-                {r.name}
+              <div className="flex">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                ))}
+              </div>
+              <p className="mt-3 text-sm">{r.body}</p>
+              <footer className="mt-4 text-xs text-muted-foreground">
+                {r.name} · {r.meta}
               </footer>
             </blockquote>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Link to="/reviews" className="font-display text-sm font-bold uppercase tracking-widest underline">
-            Read all 41 reviews
+        <div className="mt-6">
+          <Link
+            to="/reviews"
+            className="inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-widest hover:text-primary"
+          >
+            Read all reviews <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

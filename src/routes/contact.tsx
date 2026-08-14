@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, MapPin, Clock, MessageCircle, CheckCircle2 } from "lucide-react";
-import { SiteLayout, CallButton, BUSINESS } from "@/components/site/Layout";
+import { SiteLayout, CallButton, PageHero, BUSINESS } from "@/components/site/Layout";
 
-const title = "Contact Us | Home Renovations Roodepoort · 064 697 8856";
+const title = "Contact Mmatli Construction | Braamfontein, Johannesburg";
 const description =
-  "Get a free renovation or construction quote in Roodepoort. Call 064 697 8856, WhatsApp us, or send your project details through the form.";
+  "Contact Mmatli Construction in Braamfontein, Johannesburg. Call 065 888 5185, WhatsApp us, or send an enquiry for building, renovation and structural work.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -15,37 +15,27 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://real-home-dreams.lovable.app/contact" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://real-home-dreams.lovable.app/contact" }],
   }),
   component: Contact,
 });
 
-const services = [
-  "Bathroom renovation",
-  "Kitchen / interior upgrade",
-  "Roof repairs & waterproofing",
-  "Floor, damp or crack repairs",
-  "Patio, braai or paving",
-  "Extension / new build",
-  "Something else",
-];
+const field =
+  "mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring";
 
 function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
     <SiteLayout>
-      <section className="border-b border-border bg-card">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <p className="eyebrow text-muted-foreground">Get in touch</p>
-          <h1 className="mt-3 text-4xl md:text-5xl">Free quotes, straight answers</h1>
-          <p className="mt-5 max-w-2xl text-muted-foreground">
-            Speak to {BUSINESS.owner} directly. Tell us what's going on, send a photo,
-            and we'll come out to look — at no cost.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Get in touch"
+        title="Talk to the site office"
+        intro="Phone us, WhatsApp a photo of the job, or drop a short message below. We answer every enquiry within one working day."
+      />
 
       <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
@@ -53,10 +43,9 @@ function Contact() {
             {sent ? (
               <div className="py-12 text-center">
                 <CheckCircle2 className="mx-auto h-12 w-12 text-primary" />
-                <h2 className="mt-4 text-2xl">Thanks — message received</h2>
+                <h2 className="mt-4 text-2xl">Message received</h2>
                 <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
-                  We'll be in touch within 24 hours. If it's urgent, please call{" "}
-                  {BUSINESS.phone}.
+                  We'll be in touch shortly. For anything urgent, please call {BUSINESS.phone}.
                 </p>
                 <div className="mt-6 flex justify-center">
                   <CallButton label={`Call ${BUSINESS.phone}`} />
@@ -70,78 +59,37 @@ function Contact() {
                   setSent(true);
                 }}
               >
-                <h2 className="text-2xl">Request a quote</h2>
+                <h2 className="text-2xl">Send an enquiry</h2>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block text-sm font-semibold">
                     Your name
-                    <input
-                      required
-                      name="name"
-                      className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                    />
+                    <input required name="name" className={field} />
                   </label>
                   <label className="block text-sm font-semibold">
                     Phone number
-                    <input
-                      required
-                      name="phone"
-                      type="tel"
-                      className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                    />
+                    <input required name="phone" type="tel" className={field} />
                   </label>
                 </div>
                 <label className="block text-sm font-semibold">
                   Email (optional)
-                  <input
-                    name="email"
-                    type="email"
-                    className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                  />
+                  <input name="email" type="email" className={field} />
                 </label>
                 <label className="block text-sm font-semibold">
-                  Suburb / area
-                  <input
-                    name="area"
-                    placeholder="e.g. Florida Park, Roodepoort"
-                    className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                  />
-                </label>
-                <label className="block text-sm font-semibold">
-                  What do you need done?
-                  <select
-                    name="service"
-                    className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                  >
-                    {services.map((s) => (
-                      <option key={s}>{s}</option>
-                    ))}
-                  </select>
-                </label>
-                <label className="block text-sm font-semibold">
-                  Project details
-                  <textarea
-                    required
-                    name="message"
-                    rows={5}
-                    placeholder="Tell us about the problem, the size of the job and when you'd like it done."
-                    className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-normal outline-none focus:ring-2 focus:ring-ring"
-                  />
+                  How can we help?
+                  <textarea required name="message" rows={5} className={field} />
                 </label>
                 <button
                   type="submit"
                   className="w-full rounded-md bg-primary px-5 py-3 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5"
                 >
-                  Send my request
+                  Send message
                 </button>
-                <p className="text-xs text-muted-foreground">
-                  Prefer to talk? Call or WhatsApp {BUSINESS.phone} any time.
-                </p>
               </form>
             )}
           </div>
 
           <aside className="space-y-5">
-            <div className="rounded-xl surface-ink p-6 shadow-lift">
+            <div className="rounded-xl surface-steel p-6 shadow-lift">
               <h2 className="text-xl">Contact details</h2>
               <ul className="mt-5 space-y-4 text-sm">
                 <li className="flex gap-3">
@@ -166,21 +114,21 @@ function Contact() {
                 </li>
                 <li className="flex gap-3">
                   <Clock className="h-5 w-5 shrink-0 text-primary" />
-                  <span>Mon–Sat · early starts, after-hours calls welcome</span>
+                  <span>{BUSINESS.hours} · site calls anytime</span>
                 </li>
               </ul>
             </div>
 
             <div className="overflow-hidden rounded-xl bg-card shadow-card">
               <iframe
-                title="Our service area in Roodepoort"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=27.88%2C-26.18%2C27.96%2C-26.12&layer=mapnik"
+                title="Mmatli Construction office in Braamfontein, Johannesburg"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=28.02%2C-26.21%2C28.05%2C-26.18&layer=mapnik"
                 className="h-64 w-full border-0"
                 loading="lazy"
               />
               <div className="p-4 text-sm text-muted-foreground">
-                Serving Roodepoort, Florida, Constantia Kloof, Weltevredenpark,
-                Randburg and the greater West Rand.
+                Working across Braamfontein, Sandton, Randburg, Midrand, Soweto and the
+                greater Johannesburg area.
               </div>
             </div>
           </aside>
