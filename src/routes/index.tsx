@@ -137,29 +137,30 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={bathroom}
-              alt="Completed bathroom renovation in Roodepoort"
-              width={1200}
-              height={912}
+              src={interior}
+              alt="Finished open-plan living area with exposed white beams and stacking doors"
+              width={1600}
+              height={1200}
               loading="lazy"
               className="col-span-2 h-64 w-full rounded-xl object-cover shadow-card"
             />
             <img
-              src={patio}
-              alt="Covered patio extension with braai"
-              width={1200}
-              height={912}
+              src={vanity}
+              alt="New bathroom vanity with backlit mirror and metro tiling"
+              width={900}
+              height={1200}
               loading="lazy"
               className="h-40 w-full rounded-xl object-cover shadow-card"
             />
             <img
               src={kitchen}
               alt="Kitchen renovation with new cabinetry"
-              width={1200}
-              height={912}
+              width={1600}
+              height={1200}
               loading="lazy"
               className="h-40 w-full rounded-xl object-cover shadow-card"
             />
+
           </div>
         </div>
       </section>
